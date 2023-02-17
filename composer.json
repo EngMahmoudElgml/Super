@@ -1,0 +1,17 @@
+{
+    "name": "eng-mahmoud-elgml/super",
+    "description": "This is a helper package created by pro.aya ahmed and pro.mahmoud ahmed",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "EngMahmoudElgml\\Super\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mahmoud Ahmed",
+            "email": "eng.m.ahmed@gmail.com"
+        }
+    ],
+    "require": {}
+}
