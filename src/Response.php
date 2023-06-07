@@ -19,6 +19,6 @@ class Response
                 'validation' => $validation,
                 'message' => $message,
                 'data' => $response,
-            ], $error_code);
+            ], $error_code,['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8']);
         }
 }
