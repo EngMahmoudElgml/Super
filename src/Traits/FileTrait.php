@@ -106,16 +106,16 @@ trait FileTrait
         })->export('xls');
     }
 
-    public function upload_content_s3($content,$path){
+    public static function upload_content_s3($content,$path){
         $name = time() . rand(1111, 9999) . '.pdf';
         $stringPath = 'safqa/'.$path .'/'. $name;
         \Storage::disk('s3')->put($stringPath, $content);
         return $stringPath;
     }
 
-    public function upload_s3($file,$path){
+    public static function upload_s3($file,$path){
         $name = time() . rand(1111, 9999) .  '.' . $file->getClientOriginalExtension();
-        $stringPath = 'safqa/'.$path .'/'. $name;
+        $stringPath = $path .'/'. $name;
         \Storage::disk('s3')->put($stringPath, file_get_contents($file));
 
         return $stringPath;
