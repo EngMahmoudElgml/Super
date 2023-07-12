@@ -31,7 +31,7 @@ trait FileTrait
     public static function uploadFile($file, $stringPath)
     {
         $file = $file;
-        $fileName = time() . Super::randomPin() .  '.' . $file->getClientOriginalExtension();
+        $fileName = time() . rand(1,99999999) .  '.' . $file->getClientOriginalExtension();
         $fileLocation = getcwd() . '/' . $stringPath . '/';
         $file->move($fileLocation, $fileName);
         if(!$file){
