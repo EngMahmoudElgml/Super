@@ -8,7 +8,7 @@ use Excel;
 
 trait FileTrait
 {
-    public function uploadImage($file, $imageLocation, $resizeWidth=null, $width=null, $height=null)
+    public static function uploadImage($file, $imageLocation, $resizeWidth=null, $width=null, $height=null)
     {
         ini_set('upload_max_filesize', '10M');
 
@@ -28,7 +28,7 @@ trait FileTrait
 
     }
 
-    public function uploadFile($file, $stringPath)
+    public static function uploadFile($file, $stringPath)
     {
         $file = $file;
         $fileName = time() . Super::randomPin() .  '.' . $file->getClientOriginalExtension();
@@ -40,7 +40,7 @@ trait FileTrait
         return $fileName;
     }
 
-    public function uploadFile64($string, $stringPath)
+    public static function uploadFile64($string, $stringPath)
     {
      /*   if (!$this->check_base64_image($string)) {
             return FALSE;
@@ -86,7 +86,7 @@ trait FileTrait
         }
     }
 
-    public function deleteFile($path){
+    public static function deleteFile($path){
         File::delete( getcwd() . '/' . $path);
     }
 
@@ -108,7 +108,7 @@ trait FileTrait
 
     public function upload_content_s3($content,$path){
         $name = time() . rand(1111, 9999) . '.pdf';
-        $stringPath = 'safqa/'.$path .'/'. $name;
+        $stringPath = $path .'/'. $name;
         \Storage::disk('s3')->put($stringPath, $content);
         return $stringPath;
     }
